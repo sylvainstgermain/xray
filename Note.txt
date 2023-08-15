@@ -33,3 +33,10 @@ objecstore_odf yml - pas sur on premise juste sur amazon
 "user": "xraylab",
             "access_key": "X1I3M0A6HCT8K9RN9O85",
             "secret_key": "QJAffdtynAKBIYsBTrwJayGw26tWtDLcuZ2GbAIA"
+
+7. Install finalement datascience operator 
+
+8. Knative server - ns knative serving (wait)
+delete limitRanges !!!!  
+9. Knativ event - ns knative eventing (wait)
+
