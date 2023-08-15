@@ -1,0 +1,18 @@
+# Prerequisite
+https://github.com/eartvit/xraylab-demo/tree/main/prerequisites
+git clone https://github.com/sylvainstgermain/xray.git
+
+# Setup Red Hat Container Storage
+cd ~/GIT/xraylab-demo/prerequisites
+oc apply -f 01_cephobjectstore_odf.yaml
+
+Warning: resource cephobjectstores/ocs-storagecluster-cephobjectstore is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by oc apply. oc apply should only be used on resources created declaratively by either oc create --save-config or oc apply. The missing annotation will be patched automatically.
+cephobjectstore.ceph.rook.io/ocs-storagecluster-cephobjectstore configured
+route.route.openshift.io/s3-rgw created
+
+# Deploy Ceph Toolbox
+oc project openshift-storage
+oc patch OCSInitialization ocsinit -n openshift-storage --type json --patch  '[{ "op": "replace", "path": "/spec/enableCephTools", "value": true }]'
+
+# Create a RadosGateway user
+oc exec -n openshift-storage `oc get pods -n openshift-storage | grep rook-ceph-tools | grep Running | awk '{print $1}'` -- radosgw-admin user create --uid="xraylab" --display-name="Xray Lab"
