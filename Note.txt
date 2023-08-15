@@ -1,3 +1,5 @@
+git clone https://github.com/sylvainstgermain/xray.git
+
 # Prerequisite
 https://github.com/eartvit/xraylab-demo/tree/main/prerequisites
 git clone https://github.com/sylvainstgermain/xray.git
@@ -16,3 +18,15 @@ oc patch OCSInitialization ocsinit -n openshift-storage --type json --patch  '[{
 
 # Create a RadosGateway user
 oc exec -n openshift-storage `oc get pods -n openshift-storage | grep rook-ceph-tools | grep Running | awk '{print $1}'` -- radosgw-admin user create --uid="xraylab" --display-name="Xray Lab"
+####################
+Install operator
+1. Servcerless all namspea
+2. AMQ streams all nemespace
+3. Data science
+    * (avant) Tekton pipelines openshift - all namspace
+
+objecstore_odf yml - pas sur on premise juste sur amazon
+
+4. Met le rados gateway
+5. Patch pour cephtool
+6. Cree le user xraylab (ceph)
