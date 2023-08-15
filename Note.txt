@@ -30,3 +30,6 @@ objecstore_odf yml - pas sur on premise juste sur amazon
 4. Met le rados gateway
 5. Patch pour cephtool
 6. Cree le user xraylab (ceph)
+"user": "xraylab",
+            "access_key": "X1I3M0A6HCT8K9RN9O85",
+            "secret_key": "QJAffdtynAKBIYsBTrwJayGw26tWtDLcuZ2GbAIA"
